@@ -32,11 +32,18 @@
         android:id="@+id/nav_browser"
         android:name="ru.mirea.lukutin.mireaproject.ui.web.Web"
         android:label="Браузер" />
+
     <fragment
         android:id="@+id/nav_music"
         android:name="ru.mirea.lukutin.mireaproject.ui.music.Music"
         android:label="fragment_music"
         tools:layout="@layout/fragment_music" />
+
+    <fragment
+        android:id="@+id/nav_sensor"
+        android:name="ru.mirea.lukutin.mireaproject.ui.sensors.SensorsFragment"
+        android:label="Sensors"
+        tools:layout="@layout/fragment_sensors"/>
 
 
 </navigation>

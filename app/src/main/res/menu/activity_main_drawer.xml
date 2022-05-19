@@ -22,11 +22,16 @@
             android:title="Калькулятор" />
         <item
             android:id="@+id/nav_browser"
-            android:icon="?android:attr/fingerprintAuthDrawable"
+            android:icon="?attr/actionModeShareDrawable"
             android:title="Браузер" />
         <item
             android:id="@+id/nav_music"
             android:icon="@android:drawable/ic_btn_speak_now"
             android:title="Музыка" />
+
+        <item
+            android:id="@+id/nav_sensor"
+            android:icon="?android:attr/fingerprintAuthDrawable"
+            android:title="Сенсоры" />
     </group>
 </menu>
