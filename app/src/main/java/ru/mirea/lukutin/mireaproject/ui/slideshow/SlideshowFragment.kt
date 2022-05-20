@@ -39,11 +39,10 @@ class SlideshowFragment : Fragment() {
 
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        list = binding.recyclerView
         appDatabase = App.instance.database
         storyDao = appDatabase.storyDao()
         stories = storyDao.all as ArrayList<Story>
+        list = binding.recyclerView
         println(stories)
         val adapter = HistoryAdapter(context, stories)
         _binding.recyclerView.adapter = adapter

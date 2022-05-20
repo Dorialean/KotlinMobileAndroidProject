@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.internal.ContextUtils.getActivity
+import ru.mirea.lukutin.mireaproject.MainActivity
 import ru.mirea.lukutin.mireaproject.R
 import ru.mirea.lukutin.mireaproject.ui.slideshow.database.App
 import ru.mirea.lukutin.mireaproject.ui.slideshow.database.Story
@@ -24,15 +26,13 @@ class HistoryView: AppCompatActivity() {
         val database = App.instance.database
         val storyDao = database.storyDao()
 
-        val authorities = applicationContext.packageName + ".fileprovider"
-
         val story = Story()
         story.storyTitle = findViewById<EditText>(R.id.titleEditText).text.toString()
         story.storyDate = SimpleDateFormat("d MMM. yyyy HH:mm").format(Date())
         story.storyText = findViewById<EditText>(R.id.historyEditText).text.toString()
         storyDao.insert(story)
 
-        val intent = Intent(this, SlideshowFragment::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 
