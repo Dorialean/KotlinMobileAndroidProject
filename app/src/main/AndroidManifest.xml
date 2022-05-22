@@ -3,11 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ru.mirea.lukutin.mireaproject">
 
-    <uses-permission android:name="android.permission.INTERNET" android:required="true"/>
-    <uses-permission android:name="android.permission.CAMERA" android:required="true"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="true" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="true"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:required="true" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <uses-feature android:name="android.hardware.camera.any" />
 
     <application
@@ -22,30 +31,39 @@
         android:theme="@style/Theme.MireaProject"
         tools:targetApi="31">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC0EQ_BLbEfSSmXWbz8Vg0eZaVeq_nAv7Q" />
+
         <activity
-            android:name=".ui.slideshow.HistoryView"
-            android:exported="false" />
-        
-        <provider
-            android:authorities="ru.mirea.lukutin.fileprovider"
-            android:name="androidx.core.content.FileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileprovider" />
-        </provider>
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MireaProject.NoActionBar">
+            android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.slideshow.HistoryView"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="ru.mirea.lukutin.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider" />
+        </provider>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MireaProject.NoActionBar"></activity>
     </application>
 
 </manifest>
