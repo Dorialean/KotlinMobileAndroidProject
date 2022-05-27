@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
+//aboba@mail.ru aboba123
+
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     lateinit var emailPlainText: EditText
@@ -40,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         currentUser = auth.currentUser
-        statusTextView.text = currentUser?.displayName.toString()
+        statusTextView.text = currentUser?.email.toString()
     }
 
     fun createAccount(){
@@ -63,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         val mainIntent = Intent(this,MainActivity::class.java)
-        val helloToast = Toast.makeText(this, "Hello " + user?.displayName.toString(), Toast.LENGTH_LONG)
+        val helloToast = Toast.makeText(this, "Hello " + user?.email.toString(), Toast.LENGTH_LONG)
         helloToast.show()
         startActivity(mainIntent)
     }
@@ -87,7 +89,6 @@ class LoginActivity : AppCompatActivity() {
 
     fun onRegLogClick(view: View){
         if(currentUser != null){
-            Firebase.auth.signOut()
             updateUI(currentUser)
         }
         else if((isValidEmail(emailPlainText.text.toString())
